@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sudoku-flask
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: sudoku-flask
+  template:
+    metadata:
+      labels:
+        app: sudoku-flask
+    spec:
+      containers:
+        - name: sudoku-flask
+          image: atreyeek/sudoku-flask-cicd:v1
+          ports:
+            - containerPort: 5000
